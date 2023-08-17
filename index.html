@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 100%;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            transition: 1s;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn{
+            width: 200px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">Click</button>
+</body>
+<script>
+    let body=document.body;
+    let set=setInterval(()=>{
+        let red=Math.floor(Math.random()*3000);
+        let green=Math.floor(Math.random()*9000);
+        let blue=Math.floor(Math.random()*3000);
+        let deg=Math.floor(Math.random()*360);
+        let gradient=`linear-gradient(${deg}deg,#${red},#${green} 30%,#${blue})`
+        // console.log(red);
+        body.style.background=gradient;
+    },1000);
+
+    let btn=document.querySelector('.btn');
+    btn.addEventListener('click',()=>{
+        clearInterval(set);
+    });
+</script>
+</html>
